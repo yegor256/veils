@@ -5,9 +5,9 @@
 [![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
 [![Build Status](https://travis-ci.org/yegor256/veils.svg)](https://travis-ci.org/yegor256/veils)
-[![Build status](https://ci.appveyor.com/api/projects/status/e61qudqccs0fu8xt?svg=true)](https://ci.appveyor.com/project/yegor256/veils)
+[![Build status](https://ci.appveyor.com/api/projects/status/pexc3cg49m75c0r6?svg=true)](https://ci.appveyor.com/project/yegor256/veils)
 [![Gem Version](https://badge.fury.io/rb/veils.svg)](http://badge.fury.io/rb/veils)
-[![Maintainability](https://api.codeclimate.com/v1/badges/224939b58aa606fdd56c/maintainability)](https://codeclimate.com/github/yegor256/veils/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/51b007d0eb24ceeeca94/maintainability)](https://codeclimate.com/github/yegor256/veils/maintainability)
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/yegor256/veils/master/frames)
 
 [![Hits-of-Code](https://hitsofcode.com/github/yegor256/veils)](https://hitsofcode.com/view/github/yegor256/veils)
