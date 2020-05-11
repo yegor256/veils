@@ -49,7 +49,8 @@ class Veil
 
   def method_missing(*args)
     method = args[0]
-    if @pierced
+    if @pierced || !@methods.key?(method)
+      @pierced = true
       unless @origin.respond_to?(method)
         raise "Method #{method} is absent in #{@origin}"
       end
@@ -60,11 +61,8 @@ class Veil
       else
         @origin.__send__(*args)
       end
-    elsif @methods.key?(method)
-      @methods[method]
     else
-      @pierced = true
-      method_missing(*args)
+      @methods[method]
     end
   end
 
