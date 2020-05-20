@@ -63,7 +63,7 @@ class AlterOut
   end
 
   def respond_to?(method, include_private = false)
-    @origin.respond_to?(method, include_private) || @methods[method]
+    @origin.respond_to?(method, include_private) || @methods.key?(method)
   end
 
   def respond_to_missing?(_method, _include_private = false)
