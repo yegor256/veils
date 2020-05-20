@@ -24,8 +24,6 @@ require 'rubygems'
 require 'rake'
 require 'rake/clean'
 
-CLEAN = FileList['coverage']
-
 def name
   @name ||= File.basename(Dir['*.gemspec'].first, '.*')
 end

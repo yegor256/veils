@@ -34,6 +34,25 @@ method is called and the veil is "pierced."
 
 Keep in mind that `Veil` is thread-safe.
 
+You can also use `Unpiercable` decorator, which will never be pierced:
+a very good instrument for data memoization.
+
+You can also try `AlterOut`, which lets you modify the output
+of object methods on fly:
+
+```ruby
+require 'alterout'
+obj = AlterOut.new(obj, to_s: proc { |s| s + 'extra tail' })
+```
+
+There is also `AlterIn` decorator, to modify incoming method arguments
+(the result of the `proc` will replace the list of input arguments):
+
+```ruby
+require 'alterin'
+obj = AlterIn.new(obj, print: proc { |i| [i + 1] })
+```
+
 ## How to contribute
 
 Read [these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).

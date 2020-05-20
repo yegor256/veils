@@ -24,19 +24,19 @@
 
 require 'minitest/autorun'
 require 'json'
-require_relative '../lib/alterout'
+require_relative '../lib/alterin'
 
-# AlterOut test.
+# AlterIn test.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
 # Copyright:: Copyright (c) 2020 Yegor Bugayenko
 # License:: MIT
-class AlterOutTest < Minitest::Test
+class AlterInTest < Minitest::Test
   def test_simple
     obj = Object.new
-    def obj.read(val)
-      val
+    def obj.plus(first, second)
+      first + second
     end
-    foo = AlterOut.new(obj, read: proc { |r| r + 1 })
-    assert_equal(6, foo.read(5))
+    foo = AlterIn.new(obj, plus: proc { |a, b| [a + 1, b + 1] })
+    assert_equal(7, foo.plus(2, 3))
   end
 end
