@@ -13,6 +13,9 @@
 [![Hits-of-Code](https://hitsofcode.com/github/yegor256/veils)](https://hitsofcode.com/view/github/yegor256/veils)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/veils/blob/master/LICENSE.txt)
 
+Read this blog post first:
+[Veil Objects to Replace DTOs](https://www.yegor256.com/2020/05/19/veil-objects.html)
+
 First, install it:
 
 ```bash
