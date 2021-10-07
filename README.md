@@ -25,7 +25,7 @@ $ gem install veils
 Then, use it like this:
 
 ```ruby
-require 'veils'
+require 'veil'
 obj = Veil.new(obj, to_s: 'Hello, world!')
 ```
 
