@@ -51,9 +51,7 @@ class Veil
     method = args[0]
     if @pierced || !@methods.key?(method)
       @pierced = true
-      unless @origin.respond_to?(method)
-        raise "Method #{method} is absent in #{@origin}"
-      end
+      raise "Method #{method} is absent in #{@origin}" unless @origin.respond_to?(method)
       if block_given?
         @origin.__send__(*args) do |*a|
           yield(*a)

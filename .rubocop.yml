@@ -1,10 +1,12 @@
 AllCops:
   DisplayCopNames: true
   TargetRubyVersion: 2.3
+  SuggestExtensions: false
+  NewCops: enable
 
 Layout/EndOfLine:
   EnforcedStyle: lf
-Style/MethodMissingSuper:
+Lint/MissingSuper:
   Enabled: false
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
@@ -24,5 +26,7 @@ Metrics/PerceivedComplexity:
   Max: 10
 Metrics/ParameterLists:
   Max: 10
-Layout/AlignParameters:
+Layout/ParameterAlignment:
+  Enabled: false
+Style/OptionalBooleanParameter:
   Enabled: false

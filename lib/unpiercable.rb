@@ -51,9 +51,7 @@ class Unpiercable
     if @methods.key?(method)
       @methods[method]
     else
-      unless @origin.respond_to?(method)
-        raise "Method #{method} is absent in #{@origin}"
-      end
+      raise "Method #{method} is absent in #{@origin}" unless @origin.respond_to?(method)
       if block_given?
         @origin.__send__(*args) do |*a|
           yield(*a)
