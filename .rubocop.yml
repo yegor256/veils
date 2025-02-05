@@ -29,7 +29,7 @@ Layout/ParameterAlignment:
   Enabled: false
 Style/OptionalBooleanParameter:
   Enabled: false
-required:
+require:
   - rubocop-rake
   - rubocop-minitest
   - rubocop-performance
