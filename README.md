@@ -1,13 +1,13 @@
 <img src="/logo.svg" width="64px" height="64px"/>
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
-[![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/veils)](http://www.rultor.com/p/yegor256/veils)
+[![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/veils)](https://www.rultor.com/p/yegor256/veils)
 [![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
 [![rake](https://github.com/yegor256/veils/actions/workflows/rake.yml/badge.svg)](https://github.com/yegor256/veils/actions/workflows/rake.yml)
-[![Gem Version](https://badge.fury.io/rb/veils.svg)](http://badge.fury.io/rb/veils)
+[![Gem Version](https://badge.fury.io/rb/veils.svg)](https://badge.fury.io/rb/veils)
 [![Maintainability](https://api.codeclimate.com/v1/badges/51b007d0eb24ceeeca94/maintainability)](https://codeclimate.com/github/yegor256/veils/maintainability)
-[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/yegor256/veils/master/frames)
+[![Yard Docs](https://img.shields.io/badge/yard-docs-blue.svg)](https://rubydoc.info/github/yegor256/veils/master/frames)
 [![Hits-of-Code](https://hitsofcode.com/github/yegor256/veils)](https://hitsofcode.com/view/github/yegor256/veils)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/veils/blob/master/LICENSE.txt)
 
