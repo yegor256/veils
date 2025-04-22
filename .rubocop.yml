@@ -6,14 +6,22 @@ AllCops:
   TargetRubyVersion: 2.3
   SuggestExtensions: false
   NewCops: enable
+plugins:
+  - rubocop-rake
+  - rubocop-minitest
+  - rubocop-performance
 Layout/EndOfLine:
   EnforcedStyle: lf
 Lint/MissingSuper:
   Enabled: false
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
+Minitest/EmptyLineBeforeAssertionMethods:
+  Enabled: false
 Layout/MultilineMethodCallIndentation:
   Enabled: false
+Minitest/MultipleAssertions:
+  Max: 5
 Metrics/AbcSize:
   Max: 65
 Metrics/BlockLength:
@@ -32,7 +40,3 @@ Layout/ParameterAlignment:
   Enabled: false
 Style/OptionalBooleanParameter:
   Enabled: false
-require:
-  - rubocop-rake
-  - rubocop-minitest
-  - rubocop-performance

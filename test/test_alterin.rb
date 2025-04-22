@@ -23,15 +23,15 @@ class AlterInTest < Minitest::Test
 
   def test_respond_to
     foo = AlterIn.new(Object.new)
-    assert_equal(false, foo.respond_to?(:undefine_method))
+    refute_respond_to(foo, :undefine_method)
 
     foo = AlterIn.new(Object.new, method_return_object: Object.new)
-    assert_equal(true, foo.respond_to?(:method_return_object))
+    assert_respond_to(foo, :method_return_object)
 
     foo = AlterIn.new(Object.new, method_return_false: false)
-    assert_equal(true, foo.respond_to?(:method_return_false))
+    assert_respond_to(foo, :method_return_false)
 
     foo = AlterIn.new(Object.new, method_return_nil: nil)
-    assert_equal(true, foo.respond_to?(:method_return_nil))
+    assert_respond_to(foo, :method_return_nil)
   end
 end

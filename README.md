@@ -34,7 +34,7 @@ You can also use `Unpiercable` decorator, which will never be pierced:
 a very good instrument for data memoization.
 
 You can also try `AlterOut`, which lets you modify the output
-of object methods on fly:
+of object methods on the fly:
 
 ```ruby
 require 'alterout'

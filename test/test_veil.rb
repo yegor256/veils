@@ -29,7 +29,7 @@ class VeilTest < Minitest::Test
   def test_behaves_like_array_with_json
     origin = [1, 2, 3]
     foo = Veil.new(origin)
-    assert(foo.respond_to?(:to_json))
+    assert_respond_to(foo, :to_json)
     assert_equal(JSON.pretty_generate(origin), JSON.pretty_generate(foo))
   end
 
@@ -37,7 +37,7 @@ class VeilTest < Minitest::Test
     origin = [1, 2, 3]
     foo = Veil.new(origin, count: 1)
     assert_equal(1, foo.count)
-    assert(!foo.empty?)
+    refute_empty(foo)
     assert_equal(3, foo.count)
     observed = 0
     foo.each { |_| observed += 1 }
@@ -55,15 +55,15 @@ class VeilTest < Minitest::Test
 
   def test_respond_to
     foo = Veil.new(Object.new)
-    assert_equal(false, foo.respond_to?(:undefine_method))
+    refute_respond_to(foo, :undefine_method)
 
     foo = Veil.new(Object.new, method_return_object: Object.new)
-    assert_equal(true, foo.respond_to?(:method_return_object))
+    assert_respond_to(foo, :method_return_object)
 
     foo = Veil.new(Object.new, method_return_false: false)
-    assert_equal(true, foo.respond_to?(:method_return_false))
+    assert_respond_to(foo, :method_return_false)
 
     foo = Veil.new(Object.new, method_return_nil: nil)
-    assert_equal(true, foo.respond_to?(:method_return_nil))
+    assert_respond_to(foo, :method_return_nil)
   end
 end
