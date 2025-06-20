@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 and some its methods will be cached.'
   s.authors = ['Yegor Bugayenko']
   s.email = 'yegor256@gmail.com'
-  s.homepage = 'http://github.com/yegor256/veils'
+  s.homepage = 'https://github.com/yegor256/veils'
   s.files = `git ls-files`.split($RS)
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = ['README.md']
