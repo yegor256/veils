@@ -1,4 +1,6 @@
-<img src="/logo.svg" width="64px" height="64px"/>
+# Veils
+
+![Veils Logo](/logo.svg)
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/veils)](https://www.rultor.com/p/yegor256/veils)
@@ -17,7 +19,7 @@ Read this blog post first:
 First, install it:
 
 ```bash
-$ gem install veils
+gem install veils
 ```
 
 Then, use it like this:
@@ -55,12 +57,13 @@ Keep in mind that all classes are thread-safe.
 
 Read [these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 Make sure your build is green before you contribute
-your pull request. You will need to have [Ruby](https://www.ruby-lang.org/en/) 2.3+ and
+your pull request. You will need to have
+[Ruby](https://www.ruby-lang.org/en/) 2.3+ and
 [Bundler](https://bundler.io/) installed. Then:
 
-```
-$ bundle update
-$ bundle exec rake
+```bash
+bundle update
+bundle exec rake
 ```
 
 If it's clean and you don't see any error messages, submit your pull request.
