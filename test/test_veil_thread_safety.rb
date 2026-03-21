@@ -37,8 +37,8 @@ class VeilThreadSafetyTest < Minitest::Test
     def uncached
       @events << :uncached_called
     end
-    
-    def respond_to?(method, include_private = false)
+
+    def respond_to?(_method, _include_private = false)
       true
     end
   end
