@@ -7,9 +7,8 @@ require 'minitest/autorun'
 require_relative '../lib/veil'
 
 # Test asserts the strict thread-safe serializable order. Because the
-# implementation lacks proper synchronization (e.g. a Mutex) around
-# @pierced and method caching, this test will fail, proving that
-# thread safety is broken.
+# implementation utilizes a Mutex around @pierced and method caching,
+# this test ensures that a piercer thread doesn't bypass a reading thread.
 class VeilThreadSafetyTest < Minitest::Test
   # Fake Methods Hash that sleeps when checking keys.
   class SlowMethods
@@ -44,7 +43,7 @@ class VeilThreadSafetyTest < Minitest::Test
     end
   end
 
-  def test_proves_thread_safety_is_broken
+  def test_thread_safety
     origin = TrackedOrigin.new
     methods = SlowMethods.new({ cached: 'from_cache' })
     veil = Veil.new(origin, methods)
@@ -63,15 +62,13 @@ class VeilThreadSafetyTest < Minitest::Test
     t2.join
     t1.join
 
-    # The lack of a Mutex allows t2 to pierce the veil while t1 is reading.
-    # If a Mutex were present, t2 would block until t1 finishes.
-    # Thus, this order EXPECTS the synchronized, thread-safe condition to occur,
-    # proving that thread safety is broken since it currently fails,
-    # registering [:uncached_called, :cached_returned] instead.
+    # The Mutex ensures t2 blocks until t1 finishes its reading operation.
+    # Thus, this asserts the synchronized, thread-safe condition occurs,
+    # registering [:cached_returned, :uncached_called] instead of failing.
     assert_equal(
-      [:cached_returned, :uncached_called],
+      %i[cached_returned uncached_called],
       origin.events,
-      'Thread safety is broken: concurrent piercing bypassed the reading thread'
+      'Thread safety should be maintained by the Mutex'
     )
   end
 end
