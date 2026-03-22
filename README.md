@@ -27,21 +27,21 @@ obj = Veil.new(obj, to_s: 'Hello, world!')
 ```
 
 The method `to_s` will return `Hello, world!` until some other
-  method is called and the veil is "pierced."
+method is called and the veil is "pierced."
 
-You can also use `Unpiercable` decorator, which will never be pierced:
-  a very good instrument for data memoization.
+You can also use the `Unpiercable` decorator, which will never be pierced:
+a very good instrument for data memoization.
 
 You can also try `AlterOut`, which lets you modify the output
-  of object methods on the fly:
+of object methods on the fly:
 
 ```ruby
 require 'alterout'
 obj = AlterOut.new(obj, to_s: proc { |s| s + 'extra tail' })
 ```
 
-There is also `AlterIn` decorator, to modify incoming method arguments
-  (the result of the `proc` will replace the list of input arguments):
+There is also the `AlterIn` decorator, to modify incoming method arguments
+(the result of the `proc` will replace the list of input arguments):
 
 ```ruby
 require 'alterin'

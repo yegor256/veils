@@ -6,7 +6,7 @@
 # Veil is a simple decorator of an existing object that makes some of
 # its methods cache all values and calculate them only once.
 #
-# For more information read
+# For more information, read the
 # {README}[https://github.com/yegor256/veils/blob/master/README.md] file.
 #
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
@@ -16,7 +16,7 @@ class Veil
   # Create a new veil around an object.
   #
   # @param origin [Object] The object to wrap
-  # @param methods [Hash] A hash of method name to returned value mappings
+  # @param methods [Hash] A hash of method name to return value mappings
   # @return [Veil] The wrapped object
   def initialize(origin, methods = {})
     @origin = origin
@@ -26,7 +26,7 @@ class Veil
   end
 
   # Returns a string representation of the object.
-  # This method will use the veil value if available or delegate to the original object.
+  # This method will use the veil value if available, or delegate to the original object.
   #
   # @return [String] String representation
   def to_s
