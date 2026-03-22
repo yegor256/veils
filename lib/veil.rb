@@ -22,6 +22,7 @@ class Veil
     @origin = origin
     @methods = methods
     @pierced = false
+    @mutex = Mutex.new
   end
 
   # Returns a string representation of the object.
@@ -51,8 +52,16 @@ class Veil
   # @raise [RuntimeError] If the method doesn't exist on the original object
   def method_missing(*args)
     method = args[0]
-    if @pierced || !@methods.key?(method)
-      @pierced = true
+    forward = @mutex.synchronize do
+      if @pierced || !@methods.key?(method)
+        @pierced = true
+        true
+      else
+        false
+      end
+    end
+
+    if forward
       raise "Method #{method} is absent in #{@origin}" unless @origin.respond_to?(method)
       if block_given?
         @origin.__send__(*args) do |*a|
