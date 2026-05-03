@@ -3,8 +3,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
-# Veil is a simple decorator of an existing object that makes some of
-# its methods cache all values and calculate them only once.
+# Veil is a simple decorator of an existing object that returns
+# predefined values for some of its methods until any other method
+# is called and the veil is pierced.
 #
 # For more information, read the
 # {README}[https://github.com/yegor256/veils/blob/master/README.md] file.

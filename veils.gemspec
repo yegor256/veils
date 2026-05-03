@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.summary = 'Ruby Veil Objects'
   s.description = 'Decorate your existing Ruby object with veils
-and some its methods will be cached.'
+and some of its methods will return predefined values until pierced.'
   s.authors = ['Yegor Bugayenko']
   s.email = 'yegor256@gmail.com'
   s.homepage = 'https://github.com/yegor256/veils'
