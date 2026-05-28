@@ -53,17 +53,8 @@ class Veil
   # @raise [RuntimeError] If the method doesn't exist on the original object
   def method_missing(*args)
     method = args[0]
-    forward = @mutex.synchronize do
-      if @pierced || !@methods.key?(method)
-        @pierced = true
-        true
-      else
-        false
-      end
-    end
-
-    if forward
-      raise "Method #{method} is absent in #{@origin}" unless @origin.respond_to?(method)
+    if pierce(method)
+      raise(StandardError, "Method #{method} is absent in #{@origin}") unless @origin.respond_to?(method)
       if block_given?
         @origin.__send__(*args) do |*a|
           yield(*a)
@@ -93,5 +84,18 @@ class Veil
   # @return [Boolean] Always returns true
   def respond_to_missing?(_method, _include_private = false)
     true
+  end
+
+  private
+
+  def pierce(method)
+    @mutex.synchronize do
+      if @pierced || !@methods.key?(method)
+        @pierced = true
+        true
+      else
+        false
+      end
+    end
   end
 end

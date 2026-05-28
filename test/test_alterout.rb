@@ -3,8 +3,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
-require 'minitest/autorun'
 require 'json'
+require 'minitest/autorun'
 require_relative '../lib/alterout'
 
 # AlterOut test.
@@ -24,13 +24,10 @@ class AlterOutTest < Minitest::Test
   def test_respond_to
     foo = AlterOut.new(Object.new)
     refute_respond_to(foo, :undefine_method)
-
     foo = AlterOut.new(Object.new, method_return_object: Object.new)
     assert_respond_to(foo, :method_return_object)
-
     foo = AlterOut.new(Object.new, method_return_false: false)
     assert_respond_to(foo, :method_return_false)
-
     foo = AlterOut.new(Object.new, method_return_nil: nil)
     assert_respond_to(foo, :method_return_nil)
   end

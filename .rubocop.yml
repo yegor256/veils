@@ -10,6 +10,7 @@ plugins:
   - rubocop-rake
   - rubocop-minitest
   - rubocop-performance
+  - rubocop-elegant
 Layout/EndOfLine:
   EnforcedStyle: lf
 Lint/MissingSuper:
@@ -40,4 +41,19 @@ Layout/ParameterAlignment:
   Enabled: false
 Style/OptionalBooleanParameter:
   Enabled: false
-require: []
+Layout/EmptyLineBetweenDefs:
+  Enabled: false
+Elegant/ClassInModule:
+  Exclude:
+    - 'lib/**/*'
+    - '**/test_*.rb'
+    - '**/*Test.rb'
+Elegant/GoodMethodName:
+  AllowedNames:
+    - 'method_missing'
+    - 'respond_to?'
+    - 'respond_to_missing?'
+    - '[]'
+Elegant/NoRedundantVariable:
+  Exclude:
+    - 'test/**/*'

@@ -45,26 +45,19 @@ class VeilThreadSafetyTest < Minitest::Test
 
   def test_thread_safety
     origin = TrackedOrigin.new
-    methods = SlowMethods.new({ cached: 'from_cache' })
-    veil = Veil.new(origin, methods)
-
-    t1 = Thread.new do
-      veil.cached
-      origin.events << :cached_returned
-    end
-
+    veil = Veil.new(origin, SlowMethods.new({ cached: 'from_cache' }))
+    reader =
+      Thread.new do
+        veil.cached
+        origin.events << :cached_returned
+      end
     sleep(0.1)
-
-    t2 = Thread.new do
-      veil.uncached
-    end
-
-    t2.join
-    t1.join
-
-    # The Mutex ensures t2 blocks until t1 finishes its reading operation.
-    # Thus, this asserts the synchronized, thread-safe condition occurs,
-    # registering [:cached_returned, :uncached_called] instead of failing.
+    piercer =
+      Thread.new do
+        veil.uncached
+      end
+    piercer.join
+    reader.join
     assert_equal(
       %i[cached_returned uncached_called],
       origin.events,

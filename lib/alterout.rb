@@ -28,7 +28,7 @@ class AlterOut
 
   def method_missing(*args)
     method = args[0]
-    raise "Method #{method} is absent in #{@origin}" unless @origin.respond_to?(method)
+    raise(StandardError, "Method #{method} is absent in #{@origin}") unless @origin.respond_to?(method)
     out =
       if block_given?
         @origin.__send__(*args) do |*a|

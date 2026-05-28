@@ -28,7 +28,7 @@ class AlterIn
 
   def method_missing(*args)
     method = args[0]
-    raise "Method #{method} is absent in #{@origin}" unless @origin.respond_to?(method)
+    raise(StandardError, "Method #{method} is absent in #{@origin}") unless @origin.respond_to?(method)
     inputs = args[1..-1]
     inputs = @methods[method].call(inputs) if @methods.key?(method)
     if block_given?
